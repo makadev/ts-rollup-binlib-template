@@ -1,12 +1,14 @@
 # ts-rollup-binlib-template
 
+## What's this?
+
 #### This is a Binary/Library Template preconfigured with:
-* rollup (as bundler or build tool)
-* typescript (for typed codebase, type extraction and type checking)
-* babel (for eslint and cjs,esm transformation)
-* eslint (for linting/formatting checks)
-* prettier (for source code formatting)
-* jest (for testing / coverage)
+* [rollup](https://rollupjs.org) (as bundler or build tool)
+* [typescript](https://www.typescriptlang.org) (for typed codebase, type extraction and type checking)
+* [babel](https://babel.dev) (for eslint and cjs,esm transformation)
+* [eslint](https://eslint.org) (for linting/formatting checks)
+* [prettier](https://prettier.io) (for source code formatting)
+* [jest](https://jestjs.io) (for testing / coverage)
 
 #### The input is:
 * a small cli main and option handling library under `cli/*.ts`
@@ -22,7 +24,7 @@
 * `package.json` contains a `prepare` command such that the resulting npm package can be installed via git/github instead of npm (useful for private packages)
 * package is not using any minifier/terser
 
-## Usage (TODO List)
+## Usage Checklist
 
 1. change `package.json` fields
    * `name`
