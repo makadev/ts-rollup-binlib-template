@@ -1,0 +1,50 @@
+{
+  "name": "ts-rollup-binlib",
+  "version": "0.0.1",
+  "description": "TypeScript Rollup Binary/Library NPM Package Template",
+  "bin": {
+    "resulting-binary-name": "dist/bin/bin.cjs.js"
+  },
+  "module": "dist/lib/lib.esm.js",
+  "types": "dist/types/index.d.ts",
+  "scripts": {
+    "prepare": "npm run build",
+    "type-check": "tsc --noEmit --downlevelIteration",
+    "type-check:watch": "npm run type-check -- --watch",
+    "build:clean": "rm -rf dist/types/",
+    "build:types": "tsc src/*.ts --outDir dist/types/ --declaration --emitDeclarationOnly --downlevelIteration",
+    "build:js": "rollup -c",
+    "build": "npm run build:clean && npm run build:types && npm run build:js",
+    "lint:src": "eslint src --ext .js,.jsx,.ts,.tsx",
+    "lint:tests": "eslint tests --ext .js,.jsx,.ts,.tsx",
+    "lint": "npm run lint:src && npm run lint:tests",
+    "test:coverage": "jest --config=jest.node.config.js --coverage",
+    "test": "jest --config=jest.node.config.js"
+  },
+  "author": "makadev <npm@makadev.de>",
+  "license": "MIT",
+  "devDependencies": {
+    "@babel/cli": "^7.10.5",
+    "@babel/core": "^7.11.4",
+    "@babel/plugin-proposal-class-properties": "^7.10.4",
+    "@babel/plugin-proposal-object-rest-spread": "^7.11.0",
+    "@babel/preset-env": "^7.11.0",
+    "@babel/preset-typescript": "^7.10.4",
+    "@rollup/plugin-babel": "^5.2.0",
+    "@rollup/plugin-commonjs": "^15.0.0",
+    "@rollup/plugin-node-resolve": "^9.0.0",
+    "@types/jest": "^26.0.10",
+    "@typescript-eslint/eslint-plugin": "^3.10.1",
+    "@typescript-eslint/parser": "^3.10.1",
+    "babel-loader": "^8.1.0",
+    "eslint": "^7.7.0",
+    "eslint-config-prettier": "^6.11.0",
+    "eslint-plugin-jest": "^23.20.0",
+    "eslint-plugin-prettier": "^3.1.4",
+    "jest": "^26.4.2",
+    "prettier": "^2.1.1",
+    "rollup": "^2.26.8",
+    "typescript": "^4.0.2"
+  },
+  "dependencies": {}
+}

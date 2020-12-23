@@ -1,0 +1,6 @@
+node_modules
+dist
+coverage
+pkg-attribution
+.pkg-attribution.json
+.idea
