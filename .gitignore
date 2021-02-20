@@ -1,6 +1,15 @@
-node_modules
-dist
-coverage
-pkg-attribution
-.pkg-attribution.json
-.idea
+## npm-cache when using .docker/build/bundler
+/.npm-cache/
+
+## node packages
+/node_modules/
+
+## generated distribution
+/dist/
+
+## generated coverage/test information
+/coverage/
+/report/
+
+## generated report
+/report/

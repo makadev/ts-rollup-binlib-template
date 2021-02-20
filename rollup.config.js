@@ -1,61 +1,74 @@
-import commonjs from '@rollup/plugin-commonjs';
-import resolve from '@rollup/plugin-node-resolve';
-import babel from '@rollup/plugin-babel';
+import typescript from '@rollup/plugin-typescript';
 
-const extensions = ['.js', '.jsx', '.ts', '.tsx'];
 const external = ['fs', 'path'];
 
 export default [
-  // Library Part
+  // ES5 CommonJS Library Part
   {
     input: './src/index.ts',
     external,
     plugins: [
-      resolve({ extensions }),
-      commonjs(),
-      babel({
-        extensions,
-        babelHelpers: 'bundled',
-        include: ['src/**/*'],
+      typescript({
+        declaration: false,
+        exclude: ['cli/**', 'tests/**'],
+        rootDir: 'src/',
+        outDir: 'dist/cjs',
+        target: 'es5',
       }),
     ],
 
     output: [
       // ECMAScript Module + SourceMaps (Node.js)
       {
-        file: 'dist/lib/lib.esm.js',
-        format: 'es',
+        dir: 'dist/cjs',
+        format: 'cjs',
         sourcemap: true,
       },
     ],
   },
 
-  // CLI
+  // ES2015 ESM Library Part
   {
-    input: './cli/main.ts',
+    input: './src/index.ts',
     external,
     plugins: [
-      resolve({ extensions }),
-      commonjs(),
-      babel({
-        extensions,
-        babelHelpers: 'bundled',
-        include: ['cli/**/*', 'src/**/*'],
+      typescript({
+        declaration: false,
+        exclude: ['cli/**', 'tests/**'],
+        rootDir: 'src/',
+        outDir: 'dist/esm',
+        target: 'es2015',
       }),
     ],
 
     output: [
-      /* only works when module is called *.mjs, otherwise will output:
-         Warning: To load an ES module, set "type": "module" in the package.json or use the .mjs extension.
+      // ECMAScript Modules + SourceMaps (Node.js)
       {
-        banner: '#!/usr/bin/env node',
-        file: 'dist/bin/bin.mjs',
-        format: 'es',
+        format: 'esm',
+        sourcemap: true,
+        dir: 'dist/esm',
       },
-      */
+    ],
+  },
+
+  // CLI (ES5 CommonJS)
+  {
+    input: './cli/main.ts',
+    external,
+    plugins: [
+      typescript({
+        declaration: false,
+        exclude: ['tests/**'],
+        rootDirs: ['src/', 'cli/'],
+        outDir: 'dist/cli',
+        target: 'es5',
+      }),
+    ],
+
+    output: [
       {
         banner: '#!/usr/bin/env node',
-        file: 'dist/bin/bin.cjs.js',
+        file: 'dist/bin/bin.js',
         format: 'cjs',
         exports: 'default',
       },

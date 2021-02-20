@@ -5,6 +5,7 @@ module.exports = {
     browser: true,
     node: true,
   },
+  plugins: ['@typescript-eslint'],
   extends: [
     'plugin:@typescript-eslint/recommended',
     'prettier/@typescript-eslint',
