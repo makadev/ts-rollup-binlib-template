@@ -13,3 +13,7 @@
 
 ## generated report
 /report/
+
+
+## ignore fow now, you might want to add this
+package-lock.json

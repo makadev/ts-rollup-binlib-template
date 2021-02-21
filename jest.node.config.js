@@ -10,7 +10,11 @@ module.exports = {
     'cobertura',
     'text-summary',
   ],
-  collectCoverageFrom: ['{cli,src}/**/*.{ts,tsx,js,jsx}'],
-  testMatch: ['**/*.test.ts'],
+  collectCoverageFrom: ['{cli,src}/**/*.{ts,js}'],
+  testMatch: [
+    "tests/**/*.ts",
+    "**/*.{spec,test}.{ts,js}",
+    "**/__test__/*.{ts,js}"
+  ],
   testPathIgnorePatterns: ['/node_modules/'],
 };

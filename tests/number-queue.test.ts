@@ -1,7 +1,7 @@
-import Queue from '../src/queue';
+import { NumberQueue } from '../src';
 
 test('empty queue is empty, filled queue is not', () => {
-  const queue = new Queue<string>();
+  const queue = new NumberQueue();
 
   // new queue is empty
   expect(queue.isEmpty()).toBe(true);
@@ -9,7 +9,7 @@ test('empty queue is empty, filled queue is not', () => {
   expect(queue.pop()).toBe(null);
 
   // push something
-  const elem = 'test';
+  const elem = 1;
   queue.push(elem);
 
   // should not be empty and element should be the pushed one
@@ -24,11 +24,11 @@ test('empty queue is empty, filled queue is not', () => {
 });
 
 test('queue has fifo order', () => {
-  const queue = new Queue<string>();
+  const queue = new NumberQueue();
 
-  const first = 'first';
-  const second = 'second';
-  const third = 'third';
+  const first = 1;
+  const second = 2;
+  const third = 3;
 
   // push elements
   queue.push(first);
