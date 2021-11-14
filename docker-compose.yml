@@ -1,0 +1,13 @@
+version: "3.9"
+
+services:
+    ## bash for running commands
+    ## - run with: docker compose run --rm bash
+    ## - sometimes needs to run: docker compose down bash --remove-orphans
+    bash:
+        build:
+            context: ./.docker/local
+            dockerfile: Dockerfile
+        volumes:
+            - ".:/app"
+        command: /bin/bash
