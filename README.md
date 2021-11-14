@@ -10,7 +10,7 @@
 * [eslint](https://eslint.org) (for linting/formatting checks)
 * [prettier](https://prettier.io) (for source code formatting)
 * [jest](https://jestjs.io) (for testing / coverage)
-* [babel](https://babel.dev) (for jest)
+* [ts-jest](https://kulshekhar.github.io/ts-jest) (for jest with ts support)
 
 #### The input is:
 
@@ -25,10 +25,10 @@
 * the esm library `dist/esm/index.js` and external source map `dist/esm/index.js.map`
 * the ts type definitions `types/*.d.ts`
 
-#### Docker Bundler:
+#### Docker Compose for Dev:
 
-* use `.docker/build/bundler.sh` to configure and startup a nodejs bundler container with a clean environment for
-  development, checkout respective configuration, Dockerfile and scripts
+* for simplicity and common development environment there is a `docker-compose.yml` which can be used to create a nodejs container
+* use `docker compose run --rm bash` to start up a container
 
 #### Additional notes:
 
@@ -52,5 +52,3 @@
     * `npm run build` should create `dist/`
     * `npm run test` should complete without errors
     * `npm run test:coverage` should complete without errors and create `coverage/`
-4. rename `_prepare` script in `package.json` to `prepare`, this will automatically trigger a build on install which is
-   especially useful when installing directly from a git repository or file system bundle

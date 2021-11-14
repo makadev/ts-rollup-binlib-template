@@ -1,0 +1,24 @@
+# git
+.git/
+.gitignore
+
+# IDE
+.idea/
+.vscode
+
+# npm
+node_modules/
+npm-shrinkwrap.json
+.npm-cache/
+npm-debug.log
+
+# misc
+.docker/
+.dockerignore
+docker-compose.yml
+tsconfig.json
+.prettierignore
+prettier.config.js
+rollup.config.js
+src/
+.eslintignore
