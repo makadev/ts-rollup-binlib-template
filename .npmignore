@@ -16,13 +16,22 @@ npm-shrinkwrap.json
 .npm-cache/
 npm-debug.log
 
-# misc
+# docker
 .docker/
 .dockerignore
 docker-compose.yml
-tsconfig.json
+
+# package sources (everything package relevant will be in dist/)
+src/
+tests/
+cli/
+
+# dev configs
+.eslintignore
+.eslintrc.js
 .prettierignore
+jest.node.config.js
+package-lock.json
 prettier.config.js
 rollup.config.js
-src/
-.eslintignore
+tsconfig.json
