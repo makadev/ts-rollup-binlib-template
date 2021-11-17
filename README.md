@@ -30,12 +30,6 @@
 * for simplicity and common development environment there is a `docker-compose.yml` which can be used to create a nodejs container
 * use `docker compose run --rm bash` to start up a container
 
-#### Additional notes:
-
-* `package.json` contains a `_prepare` command which can be renamed to `prepare` such that the resulting npm package can
-  be installed via git/github instead of npm (useful for private packages)
-* package is not using any minifier/terser
-
 ## Usage Checklist
 
 1. change `package.json` fields
@@ -45,10 +39,11 @@
     * `author`
     * `license`
     * If you want to create a cli program, change the key `resulting-binary-name` to whatever binary name you want.
-      Otherwise, you can just remove the `bin` section.
-2. run `npm install` (after `package.json` modifications), you may want to add the generated `package-lock.json` to your
-   repository
+      Otherwise, you can just remove the `bin` section and the `cli`. Be aware that after removing `cli` some commands and configurations need to be fixed.
+2. run `npm install`
 3. check operations:
-    * `npm run build` should create `dist/`
+    * `npm run check` should complete without errors
+    * `npm run lint` should complete without errors
     * `npm run test` should complete without errors
+    * `npm run build` should create `dist/`
     * `npm run coverage` should complete without errors and create `coverage/`
