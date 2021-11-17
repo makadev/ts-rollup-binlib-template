@@ -10,7 +10,10 @@
   "types": "dist/types/index.d.ts",
   "scripts": {
     "check:types": "tsc --noEmit",
-    "check:formatting": "prettier --check \"src/**/*.{js,ts,json,md}\"",
+    "check:formatting:ci:github": "prettier --check \".github/**/*.yml\"",
+    "check:formatting:cli": "prettier --check \"src/**/*.{js,ts,json,md}\"",
+    "check:formatting:src": "prettier --check \"cli/**/*.{js,ts,json,md}\"",
+    "check:formatting": "npm run check:formatting:src && npm run check:formatting:cli && npm run check:formatting:ci:github",
     "check": "npm run check:formatting && npm run check:types",
     "build:types": "tsc 'src/index.ts' --outDir dist/types/ --declaration --emitDeclarationOnly",
     "build:types:clean": "rimraf dist/types/",
