@@ -1,0 +1,27 @@
+name: Build Distribution
+
+on:
+    ## only manual
+    workflow_dispatch:
+
+jobs:
+    build:
+        runs-on: ubuntu-latest
+        name: Build Distribution
+        steps:
+            - uses: actions/checkout@v2
+            - name: Setup node
+              uses: actions/setup-node@v2
+              with:
+                  node-version: "16"
+                  cache: "npm"
+            - run: npm ci
+            ## build distribution in dist/
+            - run: npm run build
+            - name: Archive distribution
+              uses: actions/upload-artifact@v2
+              with:
+                  name: dist
+                  path: |
+                      dist
+                  retention-days: 7
