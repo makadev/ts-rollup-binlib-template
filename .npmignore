@@ -26,6 +26,9 @@ src/
 tests/
 cli/
 
+# generated
+coverage/
+
 # dev configs
 .eslintignore
 .eslintrc.js
