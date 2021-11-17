@@ -51,4 +51,4 @@
 3. check operations:
     * `npm run build` should create `dist/`
     * `npm run test` should complete without errors
-    * `npm run test:coverage` should complete without errors and create `coverage/`
+    * `npm run coverage` should complete without errors and create `coverage/`

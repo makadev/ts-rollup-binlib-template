@@ -2,6 +2,10 @@
 .git/
 .gitignore
 
+# github/gitlab ci/cd
+.github/
+.gitlab-ci.yml
+
 # IDE
 .idea/
 .vscode

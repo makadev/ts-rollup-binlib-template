@@ -11,6 +11,7 @@
   "scripts": {
     "check:types": "tsc --noEmit",
     "check:formatting": "prettier --check \"src/**/*.{js,ts,json,md}\"",
+    "check": "npm run check:formatting && npm run check:types",
     "build:types": "tsc 'src/index.ts' --outDir dist/types/ --declaration --emitDeclarationOnly",
     "build:types:clean": "rimraf dist/types/",
     "build:js": "rollup -c",
@@ -21,7 +22,7 @@
     "lint:src": "eslint src --ext .js,.ts",
     "lint:tests": "eslint tests --ext .js,.ts",
     "lint": "npm run lint:src && npm run lint:cli && npm run lint:tests",
-    "test:coverage": "jest --config=jest.node.config.js --coverage",
+    "coverage": "jest --config=jest.node.config.js --coverage",
     "test": "jest --config=jest.node.config.js"
   },
   "author": "makadev <npm@makadev.de>",
