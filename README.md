@@ -15,8 +15,8 @@
 #### The input is:
 
 * a small cli main and option handling library under `cli/*.ts`
-* library files under `lib/*.ts`
-* a library bottle file `lib/index.ts`
+* library files under `src/*.ts`
+* a library bottle file `src/index.ts`
 
 #### The output will be:
 
