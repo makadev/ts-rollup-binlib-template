@@ -4,6 +4,7 @@
 
 # github/gitlab ci/cd
 .github/
+.gitlab/
 .gitlab-ci.yml
 
 # IDE
