@@ -2,7 +2,7 @@ dependencies:node14:
   image: node:14
   cache:
     key: npm-14
-    policy: push-pull
+    policy: pull-push
     paths:
       - .npm-cache/
   script:
@@ -13,7 +13,7 @@ dependencies:node16:
   image: node:16
   cache:
     key: npm-16
-    policy: push-pull
+    policy: pull-push
     paths:
       - .npm-cache/
   script:

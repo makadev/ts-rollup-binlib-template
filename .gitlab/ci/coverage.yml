@@ -19,6 +19,6 @@ coverage:node16:
     expose_as: "Coverage Report"
     paths:
       - "coverage/"
-        reports:
-    cobertura: coverage/cobertura-coverage.xml
+    reports:
+      cobertura: coverage/cobertura-coverage.xml
     expire_in: 7 day
