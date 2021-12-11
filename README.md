@@ -30,6 +30,14 @@
 * for simplicity and common development environment there is a `docker-compose.yml` which can be used to create a nodejs container
 * use `docker compose run --rm bash` to start up a container
 
+#### Github CI/CD:
+
+See `.github/workflows/*`.
+
+#### GitLab CI/CD:
+
+See `gitlab-ci.yml` and `.gitlab/ci/*`.
+
 ## Usage Checklist
 
 1. change `package.json` fields
@@ -47,3 +55,4 @@
     * `npm run test` should complete without errors
     * `npm run build` should create `dist/`
     * `npm run coverage` should complete without errors and create `coverage/`
+4. modify / remove CI/CD configuration
