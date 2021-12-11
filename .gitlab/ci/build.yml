@@ -10,6 +10,11 @@ build:node16:
   needs:
     - job: "dependencies:node16"
       artifacts: false
+  cache:
+    - key: npm-16
+      policy: pull
+      paths:
+        - .npm-cache/
   script:
     - npm ci --cache .npm-cache --prefer-offline
     - npm run build

@@ -3,6 +3,11 @@ test:node14:
   needs:
     - job: "dependencies:node14"
       artifacts: false
+  cache:
+    - key: npm-14
+      policy: pull
+      paths:
+        - .npm-cache/
   script:
     - test -f package-lock.json
     - npm ci --cache .npm-cache --prefer-offline --also=dev
@@ -15,6 +20,11 @@ test:node16:
   needs:
     - job: "dependencies:node16"
       artifacts: false
+  cache:
+    - key: npm-16
+      policy: pull
+      paths:
+        - .npm-cache/
   script:
     - test -f package-lock.json
     - npm ci --cache .npm-cache --prefer-offline --also=dev
