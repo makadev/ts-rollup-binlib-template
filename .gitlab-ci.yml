@@ -1,0 +1,20 @@
+### Templates
+include:
+  - '/.gitlab/ci/dependencies.yml'
+  - '/.gitlab/ci/test.yml'
+  - '/.gitlab/ci/build.yml'
+  - '/.gitlab/ci/coverage.yml'
+### Templates END
+
+### Workflow
+## Run only Protected Branch and Merge Request Pipelines
+workflow:
+  rules:
+    ## run merge request pipeline
+    - if: '$CI_PIPELINE_SOURCE == "merge_request_event"'
+    ## if a merge request is open, do not run branch pipeline on push
+    - if: '$CI_COMMIT_BRANCH && $CI_OPEN_MERGE_REQUESTS && $CI_PIPELINE_SOURCE == "push"'
+      when: never
+    ## run branch pipeline on protected (all sources like trigger, schedule, ...)
+    - if: '$CI_COMMIT_BRANCH && $CI_COMMIT_REF_PROTECTED'
+### Workflow END

@@ -1,0 +1,23 @@
+test:node14:
+  image: node:14
+  needs:
+    - job: "dependencies:node14"
+      artifacts: false
+  script:
+    - test -f package-lock.json
+    - npm ci --cache .npm-cache --prefer-offline --also=dev
+    - npm run check
+    - npm run lint
+    -  CI=true npm run test
+
+test:node16:
+  image: node:16
+  needs:
+    - job: "dependencies:node16"
+      artifacts: false
+  script:
+    - test -f package-lock.json
+    - npm ci --cache .npm-cache --prefer-offline --also=dev
+    - npm run check
+    - npm run lint
+    -  CI=true npm run test

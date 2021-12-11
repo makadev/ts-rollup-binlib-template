@@ -1,0 +1,20 @@
+build:node16:
+  image: node:16
+  rules:
+    ## only run on merge requests
+    - if: '$CI_PIPELINE_SOURCE == "merge_request_event"'
+    ## only run main, release or hotfix branch/tag
+    - if: '$CI_COMMIT_BRANCH == "main"'
+    - if: '$CI_COMMIT_BRANCH =~ /^release-/'
+    - if: '$CI_COMMIT_BRANCH =~ /^hotfix-/'
+  needs:
+    - job: "dependencies:node16"
+      artifacts: false
+  script:
+    - npm ci --cache .npm-cache --prefer-offline
+    - npm run build
+  artifacts:
+    name: "$CI_JOB_NAME-$CI_COMMIT_REF_NAME-dist"
+    paths:
+      - "dist/"
+    expire_in: 7 day
