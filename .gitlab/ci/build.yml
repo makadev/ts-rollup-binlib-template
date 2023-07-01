@@ -1,5 +1,5 @@
-build:node16:
-  image: node:16
+build:node18:
+  image: node:18
   rules:
     ## only run on merge requests
     - if: '$CI_PIPELINE_SOURCE == "merge_request_event"'
@@ -8,10 +8,10 @@ build:node16:
     - if: '$CI_COMMIT_BRANCH =~ /^release-/'
     - if: '$CI_COMMIT_BRANCH =~ /^hotfix-/'
   needs:
-    - job: "dependencies:node16"
+    - job: "dependencies:node18"
       artifacts: false
   cache:
-    - key: npm-16
+    - key: npm-18
       policy: pull
       paths:
         - .npm-cache/

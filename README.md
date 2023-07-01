@@ -55,4 +55,5 @@ See `gitlab-ci.yml` and `.gitlab/ci/*`.
     * `npm run test` should complete without errors
     * `npm run build` should create `dist/`
     * `npm run coverage` should complete without errors and create `coverage/`
+    * `npm run clean` should clean coverage & dist path
 4. modify / remove CI/CD configuration

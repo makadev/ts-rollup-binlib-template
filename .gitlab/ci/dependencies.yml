@@ -1,7 +1,7 @@
-dependencies:node14:
-  image: node:14
+dependencies:node18:
+  image: node:18
   cache:
-    key: npm-14
+    key: npm-18
     policy: pull-push
     paths:
       - .npm-cache/
@@ -9,10 +9,10 @@ dependencies:node14:
     - test -f package-lock.json
     - npm ci --cache .npm-cache --prefer-offline --also=dev
 
-dependencies:node16:
-  image: node:16
+dependencies:node20:
+  image: node:20
   cache:
-    key: npm-16
+    key: npm-20
     policy: pull-push
     paths:
       - .npm-cache/

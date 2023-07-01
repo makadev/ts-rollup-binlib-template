@@ -1,4 +1,4 @@
-ARG BASE_IMAGE=node:16-bullseye
+ARG BASE_IMAGE=node:18-bullseye
 FROM ${BASE_IMAGE}
 
 ENV NPM_CACHE "/app/.npm-cache"

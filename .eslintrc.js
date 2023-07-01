@@ -6,9 +6,11 @@ module.exports = {
         node: true,
     },
     plugins: ["@typescript-eslint"],
-    extends: ["plugin:@typescript-eslint/recommended", "prettier/@typescript-eslint", "plugin:prettier/recommended", "plugin:jest/recommended"],
+    extends: ["plugin:@typescript-eslint/recommended", "plugin:prettier/recommended", "plugin:jest/recommended"],
     rules: {
         // disable error on explicit types where type could be inferred
         "@typescript-eslint/no-inferrable-types": 0,
+        // enforcing LF since we expect to run in docker linux containers and unix
+        "prettier/prettier": ["error", { endOfLine: "lf" }],
     },
 };
