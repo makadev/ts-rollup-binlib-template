@@ -1,4 +1,6 @@
 import typescript from "@rollup/plugin-typescript";
+import resolve from "@rollup/plugin-node-resolve";
+import commonjs from "@rollup/plugin-commonjs";
 
 const external = ["fs", "path"];
 
@@ -11,6 +13,8 @@ const libraryCJSBuild = {
     input: "./src/index.ts",
     external,
     plugins: [
+        resolve({ preferBuiltins: false }),
+        commonjs(),
         typescript({
             declaration: false,
             exclude: libraryExcludes,
@@ -35,6 +39,8 @@ const libraryESMBuild = {
     input: "./src/index.ts",
     external,
     plugins: [
+        resolve({ preferBuiltins: false }),
+        commonjs(),
         typescript({
             declaration: false,
             exclude: libraryExcludes,
@@ -59,6 +65,8 @@ const cliCJSBuild = {
     input: "./cli/main.ts",
     external,
     plugins: [
+        resolve({ preferBuiltins: false }),
+        commonjs(),
         typescript({
             declaration: false,
             exclude: cliExcludes,
