@@ -8,6 +8,7 @@
   "main": "dist/cjs/index.js",
   "module": "dist/esm/index.js",
   "types": "dist/types/index.d.ts",
+  "type": "module",
   "scripts": {
     "check:types": "tsc --noEmit",
     "check:formatting:ci:github": "prettier --check \".github/**/*.yml\"",
@@ -30,9 +31,9 @@
     "lint": "npm run lint:src && npm run lint:cli && npm run lint:tests",
     "lint:fix": "npm run lint:src -- --fix && npm run lint:cli -- --fix && npm run lint:tests -- --fix",
     "fix": "npm run lint:fix && npm run check:formatting:fix",
-    "coverage": "jest --config=jest.node.config.js --coverage",
+    "coverage": "jest --config=jest.node.config.cjs --coverage",
     "coverage:clean": "rimraf coverage/",
-    "test": "jest --config=jest.node.config.js"
+    "test": "jest --config=jest.node.config.cjs"
   },
   "author": "makadev <npm@makadev.de>",
   "license": "MIT",

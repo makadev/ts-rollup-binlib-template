@@ -60,8 +60,8 @@ const libraryESMBuild = {
     ],
 };
 
-// CLI (ES5 CommonJS)
-const cliCJSBuild = {
+// CLI ESM
+const cliESMBuild = {
     input: "./cli/main.ts",
     external,
     plugins: [
@@ -79,11 +79,11 @@ const cliCJSBuild = {
     output: [
         {
             banner: "#!/usr/bin/env node",
-            file: "dist/bin/bin.js",
-            format: "cjs",
+            file: "dist/bin/bin.mjs",
+            format: "esm",
             exports: "default",
         },
     ],
 };
 
-export default [libraryCJSBuild, libraryESMBuild, cliCJSBuild];
+export default [libraryCJSBuild, libraryESMBuild, cliESMBuild];
